@@ -1,0 +1,88 @@
+<p class="div-title-margin w3-animate-opacity">Audio Lessons</p>
+
+<h6 class="div-title-hint">To continue listening to audio lesson while browsing site, right click on lesson and open link in new tab.</h6>
+<div class="audio-lessons-container w3-animate-opacity">
+    <ul id="playlist">
+        <li class="">
+            <a id="cheta-venna-mudda.mp3" class="fa fa-lg fa-play-circle" href="media/audio-lessons/cheta-venna-mudda.mp3"> Cheta Venna Mudda</a>
+        </li>
+        <li class="">
+            <a id="Kaki-Kadava-kadha.mp3" class="fa fa-lg fa-play-circle" href="media/audio-lessons/Kaki-Kadava-kadha.mp3"> Kaki Kadava kadha</a>
+        </li>
+        <li class="">
+            <a id="Nakka-Draksha-pallu-kadha.mp3" class="fa fa-lg fa-play-circle" href="media/audio-lessons/Nakka-Draksha-pallu-kadha.mp3"> Nakka Draksha Pallu kadha</a>
+        </li>
+        <li class="">
+            <a id="Nanda-nandana.mp3" class="fa fa-lg fa-play-circle" href="media/audio-lessons/Nanda-nandana.mp3"> Nanda Nandanaa</a>
+        </li>
+        <li class="">
+            <a id="Neeve-tallivi-tandrivi.mp3" class="fa fa-lg fa-play-circle" href="media/audio-lessons/Neeve-tallivi-tandrivi.mp3"> Neeve Tallivi Tandrivi</a>
+        </li>
+        <li class="">
+            <a id="Sarada-neeradendu.mp3" class="fa fa-lg fa-play-circle" href="media/audio-lessons/Sarada-neeradendu.mp3"> Sarada Neeradendu</a>
+        </li>
+        <li class="">
+            <a id="sarasa-manjula.mp3" class="fa fa-lg fa-play-circle" href="media/audio-lessons/sarasa-manjula.mp3"> Sarasa Manjula</a>
+        </li>
+        <li class="">
+            <a id="Uppu-kappurambu.mp3" class="fa fa-lg fa-play-circle" href="media/audio-lessons/Uppu-kappurambu.mp3"> Uppu Kappurambu</a>
+        </li>        
+    </ul>
+</div>
+
+<script>
+    /* Audio playlist */
+    var player = document.getElementById('audioPlayer');
+	var pId = "";
+
+    $('#playlist').on('click','a', function(e){
+        e.preventDefault();
+
+		sTrack = $(this).attr('href');
+
+		// Get media file name from path
+		sId = sTrack.replace(/^.*[\\\/]/, '');
+
+		// Reset playicon in title song
+		if(player.src.endsWith('Balamukundam-song.mp4')) {
+	      console.log('name =' + this.src);
+   	   titleSong = document.getElementById("titleSong");
+   		console.log('titleSong link='+ titleSong);
+			$(titleSong).removeClass('fa-stop-circle');
+			$(titleSong).addClass('fa-play-circle');
+		}
+
+		if(sId != pId) {
+			l = document.getElementById(pId);
+		    $(l).removeClass('fa-stop-circle');
+		    $(l).addClass('fa-play-circle');
+
+            l = document.getElementById(sId);
+	        run(sTrack, player);
+			pId = sId;			
+		} else if(sId == pId && player.paused) {
+			l = document.getElementById(sId);
+		    $(l).removeClass('fa-play-circle');
+		    $(l).addClass('fa-stop-circle');
+			player.play();			
+		} else if(!player.paused) {
+			player.pause(); 
+		}
+    });
+
+    player.onpause = function () {
+		l = document.getElementById(pId);
+        $(l).removeClass('fa-stop-circle');
+        $(l).addClass('fa-play-circle');
+    };
+
+    function run(src, player) {
+		player.src = src;
+        player.load();
+        player.play();
+
+		l = document.getElementById(src.replace(/^.*[\\\/]/, ''));
+        $(l).removeClass('fa-play-circle');
+        $(l).addClass('fa-stop-circle');
+    }
+</script>

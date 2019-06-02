@@ -1,0 +1,81 @@
+<p class="div-title-margin w3-animate-opacity">Prayers</p>
+
+<h6 class="div-title-hint">To continue listening to prayer lesson while browsing site, right click on lesson and open link in new tab.</h6>
+<div class="audio-lessons-container w3-animate-opacity">
+    <ul id="playlist">
+        <li class="">
+            <a id="Amma-ganna-yamma.mp3" class="fa fa-lg fa-play-circle" href="media/prayers/Amma-ganna-yamma.mp3"> Amma ganna yamma</a>
+        </li>
+        <li class="">
+            <a id="Palikedidi-bhagavatamata.mp3" class="fa fa-lg fa-play-circle" href="media/prayers/Palikedidi-bhagavatamata.mp3"> Palikedidi bhagavatamata</a>
+        </li>
+        <li class="">
+            <a id="Saraswathi-Namastubhyam.mp3" class="fa fa-lg fa-play-circle" href="media/prayers/Saraswathi-Namastubhyam.mp3"> Saraswathi Namastubhyam</a>
+        </li>
+        <li class="">
+            <a id="Sarva-mangala-mangalye.mp3" class="fa fa-lg fa-play-circle" href="media/prayers/Sarva-mangala-mangalye.mp3"> Sarva mangala mangalye</a>
+        </li>
+        <li class="">
+            <a id="Sree-kaivalya-padambu.mp3" class="fa fa-lg fa-play-circle" href="media/prayers/Sree-kaivalya-padambu.mp3"> Sree kaivalya padambu</a>
+        </li>        
+    </ul>
+</div>
+
+<script>
+    /* Audio playlist */
+    var player = document.getElementById('audioPlayer');
+	 var pId = "";
+
+    $('#playlist').on('click','a', function(e){
+        e.preventDefault();
+
+		sTrack = $(this).attr('href');
+
+		// Reset playicon in title song
+		if(player.src.endsWith('Balamukundam-song.mp4')) {
+	      console.log('name =' + this.src);
+   	   titleSong = document.getElementById("titleSong");
+   		console.log('titleSong link='+ titleSong);
+			$(titleSong).removeClass('fa-stop-circle');
+			$(titleSong).addClass('fa-play-circle');
+		}
+		
+		// Get media file name from path
+		sId = sTrack.replace(/^.*[\\\/]/, '');
+		console.log('SongId=' + sId);
+		console.log('pId=' + pId);
+		    
+		if(sId != pId) {
+			l = document.getElementById(pId);
+		    $(l).removeClass('fa-stop-circle');
+		    $(l).addClass('fa-play-circle');
+
+            l = document.getElementById(sId);
+	        run(sTrack, player);
+			pId = sId;			
+		} else if(sId == pId && player.paused) {
+			l = document.getElementById(sId);
+		    $(l).removeClass('fa-play-circle');
+		    $(l).addClass('fa-stop-circle');
+			player.play();			
+		} else if(!player.paused) {
+			player.pause(); 
+		}
+    });
+
+    player.onpause = function () {
+		l = document.getElementById(pId);
+        $(l).removeClass('fa-stop-circle');
+        $(l).addClass('fa-play-circle');
+    };
+
+    function run(src, player) {
+		player.src = src;
+        player.load();
+        player.play();
+
+		l = document.getElementById(src.replace(/^.*[\\\/]/, ''));
+        $(l).removeClass('fa-play-circle');
+        $(l).addClass('fa-stop-circle');
+    }
+</script>

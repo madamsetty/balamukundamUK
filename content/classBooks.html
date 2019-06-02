@@ -1,0 +1,63 @@
+<p class="div-title-margin w3-animate-opacity">Class Books</p>
+
+<div class="books-container w3-animate-opacity">
+    <div id="VinayakaPrardhana" class="book fade-in" page="1" name="VinayakaPrardhana.pdf">
+        <img src="books/cover/VinayakaPrardhana-small.png">
+        <div class="book-desc">
+            <h7>Vinayaka Prardhana</h7>
+            <h6><i></i></h6>
+            <h6></h6>
+        </div>
+    </div>
+    <div id="SheshadriGarudadri" class="book" page="1" name="SheshadriGarudadri.pdf">
+        <img src="books/cover/TeluguVachakamu-1-2-small.png">
+        <div class="book-desc">
+            <h7>Sheshadri</h7>
+            <h6><i></i></h6>
+            <h6></h6>
+        </div>
+    </div>
+    <div id="SheshadriGarudadri" class="book" page="2" name="SheshadriGarudadri.pdf">
+        <img src="books/cover/TeluguVachakamu-1-2-small.png">
+        <div class="book-desc">
+            <h7>Garudadri</h7>
+            <h6><i></i></h6>
+            <h6></h6>
+        </div>
+    </div>
+    <div id="Padyamulu" class="book" page="1" name="Padyamulu.pdf">
+        <img src="books/cover/GenericBookCover-small.png">
+        <div class="book-desc">
+            <h7>Padyamulu</h7>
+            <h6><i></i></h6>
+            <h6></h6>
+        </div>
+    </div>
+    <div id="Balamukundam" class="book" page="1" name="Balamukundam.pdf">
+        <img src="books/cover/GenericBookCover-small.png">
+        <div class="book-desc">
+            <h7>Balamukundam</h7>
+            <h6><i></i></h6>
+            <h6></h6>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".book").on('click', function(event){
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        var book = "books/" + jQuery(this).attr("id") + ".pdf#page=" + jQuery(this).attr("page");
+        $obj = $('<object>');
+        $obj.attr("data",book);
+        $obj.attr("type","application/pdf");
+        $obj.addClass("overlay-content");
+        $("#overlay").append($obj);
+        document.getElementById("overlay").style.display = "block";
+    });
+
+    $("#overlay").on('click', function(event){
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        document.getElementById("overlay").style.display = "none";
+    });
+</script>

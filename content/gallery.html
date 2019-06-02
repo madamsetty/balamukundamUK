@@ -1,0 +1,74 @@
+<p class="div-title-margin w3-animate-opacity">Gallery</p>
+
+<p class="gallery-container-title w3-animate-opacity">Sankranthi 2019</p>
+<div id="2019" class="gallery-container w3-animate-opacity">
+    <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2019/Balamukundam-sankranti-2019-1.mp4#t=0.5" type="video/mp4">
+	</video>
+   <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2019/Balamukundam-sankranti-2019-2.mp4#t=0.5" type="video/mp4">
+	</video>
+   <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2019/Balamukundam-sankranti-2019-3.mp4#t=0.5" type="video/mp4">
+	</video>
+</div>
+
+<p class="gallery-container-title w3-animate-opacity">2018</p>
+<div id="2019" class="gallery-container w3-animate-opacity"> 
+    <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2018/20181209-2.mp4#t=0.5" type="video/mp4">
+	</video>
+    <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2018/20181209-4.mp4#t=0.5" type="video/mp4">
+	</video>
+    <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2018/20181209-5.mp4#t=0.5" type="video/mp4">
+	</video>
+    <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2018/20181209-6.mp4#t=0.5" type="video/mp4">
+	</video>
+    <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2018/20181209-7.mp4#t=0.5" type="video/mp4">
+	</video>
+    <video class="gallery-video" controls="false" preload="metadata" width="160" height="150">
+  		<source src="media/gallery/2018/20181209-8.mp4#t=0.5" type="video/mp4">
+	</video>	
+</div>
+
+
+<script type="text/javascript">
+    $(".gallery-image").on('click', function(event){
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+		var objSrc = jQuery(this).attr("videoFile");
+
+        $obj = $('<object>');
+		if(objSrc) {
+			$obj = $('<video />', {
+				id: 'videoPlayer',
+				src: objSrc,
+				type: 'video/mp4',
+				controls: true
+			});
+			$obj.autoplay = true;
+		} else {
+			$obj.attr("type","image/png");
+	        $obj.attr("data",jQuery(this).attr("src"));
+		}
+
+        $obj.addClass("overlay-content");
+        $("#overlay").append($obj);
+        document.getElementById("overlay").style.display = "block";
+    });
+
+    $("#overlay").on('click', function(event){
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        document.getElementById("overlay").style.display = "none";
+
+	    // Remove video player
+		//$('video').trigger('pause');
+	    var element = document.getElementById("videoPlayer");
+	    element.parentNode.removeChild(element);
+    });
+</script>
