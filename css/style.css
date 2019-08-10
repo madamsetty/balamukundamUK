@@ -313,7 +313,7 @@
 }
 .team-container img {
     border: 1px solid #ccc;	
-    box-shadow: 2px 2px 10px 0px  rgba(0,0,0,0.9);    
+    box-shadow: 2px 2px 10px 0px  rgba(0,0,0,0.9);
 }
 .team-name-span {
 	display: -ms-inline-grid;
@@ -361,7 +361,7 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 5%;
+    height: 6%;
     width: 100%;
     font-size: 14px;
 }
