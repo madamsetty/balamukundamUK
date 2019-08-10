@@ -301,7 +301,6 @@
     display: flex;
     grid-template-rows: auto;
     grid-template-columns: repeat(auto-fit, 200px);
-    grid-column-gap: 100px;
     grid-row-gap: 10px;
     text-align: left;
     justify-items: left;
