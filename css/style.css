@@ -297,8 +297,8 @@
 .team-container {
     width: 80%;
     margin: 0 auto;
-	margin-top: 10px;
-    display: grid;
+	 margin-top: 10px;
+    display: flex;
     grid-template-rows: auto;
     grid-template-columns: repeat(auto-fit, 200px);
     grid-column-gap: 100px;
@@ -316,6 +316,7 @@
     box-shadow: 2px 2px 10px 0px  rgba(0,0,0,0.9);    
 }
 .team-name-span {
+	display: -ms-inline-grid;
 	margin-left: 10px;
 }
 .location-div-title {
