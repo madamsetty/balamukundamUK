@@ -230,7 +230,7 @@
 .books-container  {
     width: 90%;
     margin: 0 auto;
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fit, 200px);
     grid-column-gap: 25px;
     grid-row-gap: 75px;
@@ -301,7 +301,7 @@
     display: flex;
     grid-template-rows: auto;
     grid-template-columns: repeat(auto-fit, 200px);
-    grid-row-gap: 10px;
+    grid-row-gap: 10px;   
     text-align: left;
     justify-items: left;
     align-items: center;
