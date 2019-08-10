@@ -10,7 +10,7 @@
     width: auto;
     display: flex;
     grid-column-gap: 5px;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 34fr 1fr;
     grid-template-rows: auto;
     justify-content: left;
     background-image: url("../images/title-background.png");
@@ -47,6 +47,10 @@
     font-family:"Segoe UI",Arial,sans-serif;
     font-weight:600;
     color: black;
+}
+
+.navbar-toggler-center {
+	width: 100%;
 }
 
 .navbar-nav-center {
